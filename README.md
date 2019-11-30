@@ -10,7 +10,7 @@
 
 ## 网络结构
 
-![Image Name](asserts/arch.png)
+![Image Name](asserts/gobel.png)
 
 
 ## 主要创新点
