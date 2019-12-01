@@ -8,7 +8,7 @@ path_x4_video = '../dataset/videos/test'
 path_x4_png = '../dataset/pngs/test'
 path_x4_sr_png = '../experiment/RDN_D16C8G64_BIx4'
 path_x4_sr_video = '../experiment/RDN_D16C8G64_BIx4/SR_4K'
-pretrained_model = '/home/dengzeshuai/pretrained_models/RDN_BIX4_G10R20P48/model/model_best.pt'
+pretrained_model = '../experiment/RDN_D16C8G64/model/model_best.pt'
 
 def del_file(path):
     ls = os.listdir(path)
@@ -53,4 +53,3 @@ for video in os.listdir(path_x4_video):
     # 准备工作，清理所有临时文件
     del_file(path_x4_png)
     del_file(path_x4_sr_png + '/results-Demo/') ### 对应路径需要修改
-    

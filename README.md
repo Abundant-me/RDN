@@ -6,6 +6,9 @@
 ## 整体思路
 图像超分辨率文献 RDN: Residual Dense Network for Image Super-Resolution 提出了一种残差稠密网络，该网络结合 MDSR 中的残差块（Residual block）与 SRDenseNet 中的稠密块（Dense block），提出了残差稠密块（Residual Dense block）：单个 RDB 内的每层卷积层都和随后的卷积层连接，并将需要保存的信息传递至后续层，上一个 RDB 的输出通过 shortcut 输入到下一个 RDB 中的每一层卷积层，使得网络能够充分利用 RDB 中每一个卷积层提取出的低分辨率特征，之后，以一种全局的方式融合所有 RDBs 提取的 hierarchical feature，通过 global residual learning，结合低层特征和深层特征。
 
+## 损失函数
+选择 L<sub>1</sub> loss 函数，因为其有更强大的性能和收敛性。
+
 ## 网络结构
 
 ![Alt text](asserts/gobel.png)
