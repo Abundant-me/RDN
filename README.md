@@ -49,6 +49,7 @@ pytorch=1.2.0
 |     |—— pngs  
 |     |     |—— gt  
 |     |     |—— X4  
+|     |     |—— test  
 |     |—— SDR  
 |     |     |—— trainset  
 |     |     |     |—— HR  
