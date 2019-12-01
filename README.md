@@ -109,7 +109,7 @@ python auto_test.py
 ```
 
 ## 运行结果的位置
-* 生成的低分辨率图片存放在 ./dataset/testset/ 目录下。
+* 从测试视频抽出来的低分辨率视频帧存放在 ./dataset/testset/ 目录下。
 * 生成的高分辨率图片存放在 ./experiment/RDN_D16C8G64_BIx4/results-Demo/ 目录下。
 * 生成的高分辨率视频存放在 ./experiment/RDN_D16C8G64_BIx4/SR_4K/ 目录下。
 * 以上三个目录可分别通过 path_x4_png，path_x4_sr_png，path_x4_sr_video 进行修改。
