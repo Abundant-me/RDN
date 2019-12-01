@@ -4,8 +4,8 @@
 
 import os, subprocess, time
 
-path_x4_video = '../dataset/videos'
-path_x4_png = '../dataset/testset'
+path_x4_video = '../dataset/videos/test'
+path_x4_png = '../dataset/pngs/test'
 path_x4_sr_png = '../experiment/RDN_D16C8G64_BIx4'
 path_x4_sr_video = '../experiment/RDN_D16C8G64_BIx4/SR_4K'
 pretrained_model = '/home/dengzeshuai/pretrained_models/RDN_BIX4_G10R20P48/model/model_best.pt'

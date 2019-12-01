@@ -45,6 +45,7 @@ pytorch=1.2.0
 |     |—— videos  
 |     |     |—— gt  
 |     |     |—— X4  
+|     |     |—— test  
 |     |—— pngs  
 |     |     |—— gt  
 |     |     |—— X4  
@@ -83,7 +84,7 @@ pytorch=1.2.0
 ### 1. 下载代码
 `git clone https://github.com/Abundant-me/RDN`
 
-### 2. 准备数据
+### 2. 准备训练数据
 * 下载数据包 SDR_4K（Part 1~4），统一将所有高分辨率视频文件解压至 ./dataset/videos/gt/ 目录下。
 * 下载数据包 SDR_540p，将所有低分辨率视频文件解压至 ./dataset/videos/X4/ 目录下。
 * 运行 video2png.sh 对两类视频进行抽帧，生成的图片分别存放在 ./dataset/pngs/gt 和 ./dataset/pngs/X4 目录下。
@@ -102,14 +103,17 @@ python main.py --scale 4 --save RDN_D16C8G64_BIx4 --model RDN \
 --epochs 300 --batch_size 16  --patch_size 192 --data_train SDR --data_test SDR
 ```
 
-### 4. 开始测试
+### 4. 准备测试数据
+* 下载数据包 SDR_540p，将所有低分辨率视频文件解压至 ./dataset/videos/test/ 目录下。
+
+### 5. 开始测试
 * 运行以下代码生成测试结果  
 ```
 python auto_test.py
 ```
 
 ## 运行结果的位置
-* 从测试视频抽出来的低分辨率视频帧存放在 ./dataset/testset/ 目录下。
+* 从测试视频抽出来的低分辨率视频帧存放在 ./dataset/pngs/test/ 目录下。
 * 生成的高分辨率图片存放在 ./experiment/RDN_D16C8G64_BIx4/results-Demo/ 目录下。
 * 生成的高分辨率视频存放在 ./experiment/RDN_D16C8G64_BIx4/SR_4K/ 目录下。
 * 以上三个目录可分别通过 path_x4_png，path_x4_sr_png，path_x4_sr_video 进行修改。
