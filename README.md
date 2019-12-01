@@ -17,65 +17,70 @@
 # 二、数据和模型使用
 
 ## 预训练模型的使用情况
-* 没有使用预训练模型。
+
+没有使用预训练模型。
 
 
 # 三、项目运行环境
 
 ## 项目所需的工具包/框架
-Python 3  
-Torch 7
+
+python=3.7
+pytorch=1.2.0
 
 ## 项目运行的资源环境
-Titan X/1080Ti/Xp GPUs
+
+4 x TITAN Xp
 
 
 # 四、项目运行方法
 
 ## 项目的文件结构
+```
 |—— dataset  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— video2png.sh  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— set_train.sh  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— set_val.sh  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— videos  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— gt  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— pngs  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— gt  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— SDR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— trainset  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— HR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— LR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— valset  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— HR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— LR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
+|     |—— video2png.sh  
+|     |—— set_train.sh  
+|     |—— set_val.sh  
+|     |—— videos  
+|     |     |—— gt  
+|     |     |—— X4  
+|     |—— pngs  
+|     |     |—— gt  
+|     |     |—— X4  
+|     |—— SDR  
+|     |     |—— trainset  
+|     |     |     |—— HR  
+|     |     |     |—— LR  
+|     |     |     |     |—— X4  
+|     |     |—— valset  
+|     |     |     |—— HR  
+|     |     |     |—— LR  
+|     |     |     |     |—— X4  
 |—— experiment  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— RDN_D16C8G64_BIx4  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— results-Demo  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— SR_4K  
+|     |—— RDN_D16C8G64_BIx4  
+|     |     |—— results-Demo  
+|     |     |—— SR_4K  
 |—— src  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— data    
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— loss   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— model   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— auto_test.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— dataloader.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— demo.sh   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— main.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— option.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— template.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— trainer.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— utility.py   
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— videotester.py   
+|     |—— data    
+|     |—— loss   
+|     |—— model   
+|     |—— auto_test.py   
+|     |—— dataloader.py   
+|     |—— demo.sh   
+|     |—— main.py   
+|     |—— option.py   
+|     |—— template.py   
+|     |—— trainer.py   
+|     |—— utility.py   
+|     |—— videotester.py   
 |—— LICENSE  
 |—— README.md
+```
 
 ## 项目的运行步骤
 
 ### 1. 下载代码
-`git clone `
+`git clone https://github.com/Abundant-me/RDN`
 
 ### 2. 准备数据
 * 下载数据包 SDR_4K（Part 1~4），统一将所有高分辨率视频文件解压至 ./dataset/videos/gt/ 目录下。
