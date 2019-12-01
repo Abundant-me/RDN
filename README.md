@@ -43,17 +43,19 @@ Titan X/1080Ti/Xp GPUs
 | &nbsp; &nbsp; &nbsp; &nbsp; |—— pngs  
 | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— gt  
 | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— trainset  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— HR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— LR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— valset  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— HR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— LR  
-| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
+| &nbsp; &nbsp; &nbsp; &nbsp; |—— SDR  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— trainset  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— HR  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— LR  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— valset  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— HR  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— LR  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
 |—— experiment  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— results-Demo  
-| &nbsp; &nbsp; &nbsp; &nbsp; |—— SR_4K  
+| &nbsp; &nbsp; &nbsp; &nbsp; |—— RDN_D16C8G64_BIx4  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— results-Demo  
+| &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— SR_4K  
 |—— src  
 | &nbsp; &nbsp; &nbsp; &nbsp; |—— data    
 | &nbsp; &nbsp; &nbsp; &nbsp; |—— loss   
@@ -96,7 +98,9 @@ python main.py --scale 4 --save RDN_D16C8G64_BIx4 --model RDN \
 
 ### 4. 开始测试
 * 运行以下代码生成测试结果  
-`python auto_test.py`
+```
+python auto_test.py
+```
 
 ## 运行结果的位置
 * 生成的低分辨率图片存放在 ./dataset/testset/ 目录下。
