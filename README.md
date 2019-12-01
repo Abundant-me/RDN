@@ -34,6 +34,9 @@ Titan X/1080Ti/Xp GPUs
 
 ## 项目的文件结构
 |—— dataset  
+| &nbsp; &nbsp; &nbsp; &nbsp; |—— video2png.sh  
+| &nbsp; &nbsp; &nbsp; &nbsp; |—— set_train.sh  
+| &nbsp; &nbsp; &nbsp; &nbsp; |—— set_val.sh  
 | &nbsp; &nbsp; &nbsp; &nbsp; |—— videos  
 | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— gt  
 | &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; |—— X4  
@@ -76,19 +79,20 @@ Titan X/1080Ti/Xp GPUs
 * 下载数据包 SDR_4K（Part 1~4），统一将所有高分辨率视频文件解压至 ./dataset/videos/gt/ 目录下。
 * 下载数据包 SDR_540p，将所有低分辨率视频文件解压至 ./dataset/videos/X4/ 目录下。
 * 运行 video2png.sh 对两类视频进行抽帧，生成的图片分别存放在 ./dataset/pngs/gt 和 ./dataset/pngs/X4 目录下。
-* 将 6 对视频作为验证集，其余作为训练集。
-* 运行 *.sh 对每个训练集视频各抽取 10 帧作为训练数据：
-    * 高分辨率视频抽取的图片存放在 ./dataset/trainset/HR 目录下。
-    * 低分辨率视频抽取的图片存放在 ./dataset/trainset/LR/X4 目录下。
-    * （抽取规则：）
-* 运行 *.sh 对每个验证集视频各抽取 2 帧作为验证数据：
-    * 高分辨率视频抽取的图片存放在 ./dataset/valset/HR 目录下。
-    * 低分辨率视频抽取的图片存放在 ./dataset/valset/LR/X4 目录下。
-    * （抽取规则：）
+* 挑选 6 对视频片段作为验证集，其余 694 对视频片段作为训练集。
+* 运行 set_train.sh 对每个训练集视频片段各抽取 10 帧作为训练数据：
+    * 高分辨率视频抽取的图片存放在 ./dataset/SDR/trainset/HR 目录下。
+    * 低分辨率视频抽取的图片存放在 ./dataset/SDR/trainset/LR/X4 目录下。
+* 运行 set_val.sh 对每个验证集视频片段各抽取 2 帧作为验证数据：
+    * 高分辨率视频抽取的图片存放在 ./dataset/SDR/valset/HR 目录下。
+    * 低分辨率视频抽取的图片存放在 ./dataset/SDR/valset/LR/X4 目录下。
 
 ### 3. 开始训练
 * 运行以下代码进行模型训练  
-`python main.py --scale 4 --save RDN_D16C8G64_BIx4 --model RDN --epochs 300 --batch_size 16  --patch_size 192 --data_train SDR --data_test SDR`
+```
+python main.py --scale 4 --save RDN_D16C8G64_BIx4 --model RDN \
+--epochs 300 --batch_size 16  --patch_size 192 --data_train SDR --data_test SDR
+```
 
 ### 4. 开始测试
 * 运行以下代码生成测试结果  
