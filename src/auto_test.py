@@ -20,9 +20,6 @@ def del_file(path):
             os.remove(c_path)
 
 for video in os.listdir(path_x4_video):
-    # 准备工作，清理所有临时文件
-    del_file(path_x4_png)
-    del_file(path_x4_sr_png + '/results-Demo/') ### 对应路径需要修改
 
     #  如果已完成测试，直接跳过
     if not os.path.exists(path_x4_sr_video):
@@ -52,3 +49,8 @@ for video in os.listdir(path_x4_video):
     print(cmd_encoder)
     process_encoder = subprocess.Popen(cmd_encoder, shell=True)
     process_encoder.wait()
+
+    # 准备工作，清理所有临时文件
+    del_file(path_x4_png)
+    del_file(path_x4_sr_png + '/results-Demo/') ### 对应路径需要修改
+    
